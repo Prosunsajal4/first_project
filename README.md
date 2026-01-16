@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SCIC Next.js
 
-## Getting Started
+A Next.js application for managing and viewing items, with authentication and API integration. Built using Next.js 14, Tailwind CSS, and Express.js for backend API.
 
-First, run the development server:
+## Setup & Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository: `git clone <repo-url>`
+2. Install dependencies: `npm install`
+3. Set up environment variables (if using NextAuth.js for optional social login).
+4. Run the Express server (for API): `node server.js` (assuming server.js is in root).
+5. Start the app: `npm run dev`
+6. Open http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Route Summary
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- `/`: Landing page (public) - 7 sections including Hero, Features, About, etc.
+- `/login`: Login page (public) - Mock authentication form
+- `/items`: Item list page (public) - Displays list of items from API
+- `/items/[id]`: Item details page (public) - Shows full details of a single item
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Implemented Features
 
-## Learn More
+- Landing page with 7 relevant sections (besides Navbar and Footer)
+- Navbar with navigation links to Login and Items/Lists
+- Mock authentication using hardcoded email & password, stored in cookies
+- Route protection for unauthenticated users (redirects to /login)
+- Item list page fetching data from Express Server API/JSON
+- Item details page with full product information
+- Item cards displaying name, description, price, and image
 
-To learn more about Next.js, take a look at the following resources:
+## Brief Explanation of Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Landing Page**: Public page with 7 sections (e.g., Hero, Features, About, Contact, etc.) and a Navbar for navigation. No authentication required.
+- **Authentication**: Implements mock login with hardcoded credentials. On successful login, stores auth in cookies and redirects to /items. Protects private routes for unauthenticated users.
+- **Item List Page**: Publicly accessible, fetches and displays items from an Express API. Each item card shows key properties like name, description, price, and thumbnail image.
+- **Item Details Page**: Public page showing comprehensive details of a selected item, including all available properties.
